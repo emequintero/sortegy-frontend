@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Animation } from '../../models/animation';
 import { SortingService } from '../../services/sorting.service';
 import { Bar } from 'src/app/models/bar';
+import {MDCSnackbar} from '@material/snackbar';
 
 const ARR_LEN = 50;
 const RAND_MAX = 500;
@@ -17,10 +18,13 @@ export class NavComponent implements OnInit {
   @Output() arrayChange: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
   @Input('animations') animations: Animation[];
   @Output() animationsChange: EventEmitter<Animation[]> = new EventEmitter<Animation[]>();
-  
+  algorithms:string[] = ["QuickSort","BubbleSort","MergeSort"];
+  selectedAlgo:string = "QuickSort";
+  alert:MDCSnackbar;
   constructor(private sortingService:SortingService) { }
 
   ngOnInit(): void {
+    this.alert = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
   }
 
   createRandomArray() {
@@ -29,6 +33,20 @@ export class NavComponent implements OnInit {
       this.array[i] = new Bar("default",Math.floor(Math.random() * RAND_MAX) + RAND_MIN);
     }
     this.arrayChange.emit(this.array);
+  }
+
+  beginSorting(){
+    if(typeof this.array !== "undefined"){
+      switch(this.selectedAlgo){
+        case "QuickSort":{
+          this.quickSort();
+          break;
+        }
+      }
+    }
+    else{
+      this.alert.open();
+    }
   }
 
   quickSort() {
@@ -42,5 +60,9 @@ export class NavComponent implements OnInit {
       this.animations = temp;
       this.animationsChange.emit(this.animations);
     });
+  }
+
+  setAlgorithm(algo){
+    this.selectedAlgo = algo;
   }
 }

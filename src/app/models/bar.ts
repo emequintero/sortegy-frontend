@@ -1,8 +1,8 @@
 export class Bar{
-    constructor(color:String, value:number){
+    constructor(color:string, value:number){
         this.color = color;
         this.value = value;
     }
-    color:String;
+    color:string;
     value:number;
 }

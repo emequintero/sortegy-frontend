@@ -1,8 +1,8 @@
 export class Animation {
-    constructor(state: String, values: number[]) {
+    constructor(state: string, values: number[]) {
         this.state = state;
         this.values = values;
     }
-    state: String;
+    state: string;
     values: number[];
 }

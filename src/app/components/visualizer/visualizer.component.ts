@@ -2,9 +2,9 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitte
 import { Animation } from '../../models/animation';
 import { Bar } from 'src/app/models/bar';
 
-const SWAP_COLOR = "red";
-const DEFAULT_COLOR = "lightpink";
-const PIVOT_COLOR = "blue";
+const SWAP_COLOR = "#FF0266";
+const DEFAULT_COLOR = "ghostwhite";
+const PIVOT_COLOR = "#F9A825";
 const SWAP_WAIT = 30;
 const ANIMATION_WAIT = 10;
 
@@ -59,7 +59,7 @@ export class VisualizerComponent implements OnInit {
     this.arrayChanges.emit(this.array);
   }
 
-  changeColor(arr: Bar[], state: String, indexes: number[]) {
+  changeColor(arr: Bar[], state: string, indexes: number[]) {
     for (let i = 0; i < indexes.length; i++) {
       if (state === "swap") arr[indexes[i]].color = SWAP_COLOR;
       else if (state === "default") arr[indexes[i]].color = DEFAULT_COLOR;

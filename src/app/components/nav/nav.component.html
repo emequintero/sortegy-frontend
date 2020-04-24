@@ -1,10 +1,41 @@
 <div class="container">
-    <div class="section">
-        <p>UTIL</p>
-        <button (click)="createRandomArray()">Create Array</button>
+    <div class="section title">
+        <h1>SORTEGY: A Sorting Algorithm Visualizer</h1>
     </div>
     <div class="section">
-        <p>SORT</p>
-        <button (click)="quickSort()">Quick Sort</button>
+        <button mdc-button raised (click)="createRandomArray()">Create Array</button>
+    </div>
+    <div class="section">
+        <div mdcMenuSurfaceAnchor #algorithmAnchor>
+            <button mdc-button raised (click)="algorithmGroup.open = !algorithmGroup.open">
+               <mdc-icon>arrow_drop_down</mdc-icon>{{selectedAlgo | uppercase}}
+            </button>
+            <mdc-menu #algorithmGroup [anchorElement]="algorithmAnchor">
+                <mdc-list>
+                    <mdc-list-item *ngFor="let algo of algorithms" [value]="algo" 
+                    (click)="setAlgorithm($event.target.innerHTML)">
+                        {{algo}}
+                    </mdc-list-item>
+                </mdc-list>
+            </mdc-menu>
+        </div>
+    </div>
+    <div class="section">
+        <button mdc-button raised (click)="beginSorting()">BEGIN SORTING</button>
     </div>
 </div>
+<div class="mdc-snackbar">
+    <div class="mdc-snackbar__surface">
+      <div class="mdc-snackbar__label"
+           role="status"
+           aria-live="polite">
+        Please create an array before clicking begin sorting.
+      </div>
+      <div class="mdc-snackbar__actions">
+        <button type="button" class="mdc-button mdc-snackbar__action">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label"><mdc-icon>close</mdc-icon></span>
+        </button>
+      </div>
+    </div>
+  </div>

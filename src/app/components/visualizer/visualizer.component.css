@@ -5,13 +5,13 @@
 }
 
 .display{
-    margin-top: 20px;
+    margin-top: 30px;
     width:80%;
     height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: paleturquoise;
+    background-color: #BB86FC;
 }
 
 .bar{
@@ -20,5 +20,5 @@
     margin: 5px;
     margin-bottom: 0;
     align-self: flex-end;
-    background-color: lightpink;
+    background-color: ghostwhite;
 }

@@ -1,0 +1,38 @@
+@use './styles/body';
+
+@use '@material/theme' with (
+  $primary: #6200ee,
+  $secondary: #faab1a,
+  $background: #fff,
+);
+
+// MDC Typography
+@use '@material/typography/mdc-typography';
+
+// MDC Button
+@use './styles/button';
+
+@use './styles/select';
+
+@use './styles/snackbar';
+
+// Angular MDC
+@use '@angular-mdc/theme/material';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  flex-wrap: wrap;
+  display: flex;
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100px;
+}
