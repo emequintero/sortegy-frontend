@@ -1,0 +1,24 @@
+.container{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.display{
+    margin-top: 20px;
+    width:80%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: paleturquoise;
+}
+
+.bar{
+    display: flex;
+    width: 10px;
+    margin: 5px;
+    margin-bottom: 0;
+    align-self: flex-end;
+    background-color: lightpink;
+}

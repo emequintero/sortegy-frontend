@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Animation} from 'src/app/models/animation';
+import { Bar } from './models/bar';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sortegy';
+  array:Bar[];
+  animations:Animation[];
 }
