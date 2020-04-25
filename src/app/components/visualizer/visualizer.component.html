@@ -1,7 +1,7 @@
 <div class="container">
     <div class="display">
-        <div class="bar" *ngFor="let bar of array" 
-        [style.height]="bar?.value+'px'" 
-        [style.backgroundColor]="bar?.color"></div>
+        <div class="bar" *ngFor="let bar of array"
+        [ngStyle]="{'height.px' : bar?.value , 'background-color' : bar?.color}"
+        ></div>
     </div>
 </div>

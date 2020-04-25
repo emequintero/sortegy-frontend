@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
   @Output() arrayChange: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
   @Input('animations') animations: Animation[];
   @Output() animationsChange: EventEmitter<Animation[]> = new EventEmitter<Animation[]>();
-  algorithms: string[] = ["QuickSort", "BubbleSort"];
+  algorithms: string[] = ["QuickSort", "BubbleSort", "MergeSort"];
   selectedAlgo: string = "QuickSort";
   alert: MDCSnackbar;
   constructor(private sortingService: SortingService) { }

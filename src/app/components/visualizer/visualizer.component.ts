@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Animation } from '../../models/animation';
 import { Bar } from 'src/app/models/bar';
+import { from } from 'rxjs';
 
 const SWAP_COLOR = "#FF0266";
 const DEFAULT_COLOR = "ghostwhite";
@@ -37,9 +38,9 @@ export class VisualizerComponent implements OnInit {
 
   async animate() {
     //keep track of previous pivot to change it back to default color
-    let prevPivot:number = 0;
-    let pointers:number[] = [];
-    let mergePtrs:number[] = [];
+    let prevPivot: number = 0;
+    let lastIndex:number = 0;
+    console.log(this.array.map(bar => bar.value));
     for (let i = 0; i < this.animations.length; i++) {
       let current: Animation = this.animations[i];
       //swap values in array shown in visualizer
@@ -54,37 +55,22 @@ export class VisualizerComponent implements OnInit {
         this.changeColor(this.array, "pivot", [current.values[0]]);
         prevPivot = current.values[0];
       }
-      else if(current.state === "pointer"){
-        pointers.push(current.values[0]);
-        this.changeColor(this.array, "pivot", [current.values[0]]);
-      }
-      else if(current.state === "mergeHalf"){
-        this.changeColor(this.array, "default", pointers);
-        mergePtrs = current.values;
-        pointers = [];
-      }
-      else if(current.state === "consolidate"){
-        this.changeColor(this.array, "default", pointers);
-        for(let i = mergePtrs[0]; i < mergePtrs[2]; i++){
-          this.array[i].value = current.values[i];
-          await this.wait(10);
-        }
-        pointers = [];
-      }
-      else if(current.state === "mergeFull"){
-        this.changeColor(this.array, "default", pointers);
-        for(let i = 0; i < this.array.length; i++){
-          this.array[i].value = current.values[i];
-          await this.wait(10);
-        }
-        pointers = [];
+      else if (current.state === "overwrite") {
+        this.changeColor(this.array, "swap", [current.values[0]]);
+        this.array[current.values[0]].value = current.values[1];
+        await this.wait(ANIMATION_WAIT);
+        this.changeColor(this.array, "default", [current.values[0]]);
       }
       await this.wait(ANIMATION_WAIT);
     }
+    console.log(this.array.map(bar => bar.value));
     //change final pivot to default color
     this.changeColor(this.array, "default", [prevPivot]);
-    if(pointers.length != 0)this.changeColor(this.array, "default", pointers);
     this.arrayChanges.emit(this.array);
+  }
+
+  arrayCopy(src, srcIndex, dest, destIndex, length) {
+    dest.splice(destIndex, length, ...src.slice(srcIndex, srcIndex + length));
   }
 
   changeColor(arr: Bar[], state: string, indexes: number[]) {
