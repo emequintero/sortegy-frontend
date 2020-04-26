@@ -1,11 +1,11 @@
 @media only screen and (max-width:400px){
     div.section.title, div.section.button{
-        width: 100%;
+        width: 100vw;
         padding: 0;
         margin: 0;
     }
     div.section.title{
-        margin: 30px 0;
+        margin: 32px 0;
     }
     div.section.button{
         background-color: #3C4042;
@@ -14,7 +14,7 @@
 
 @media only screen and (min-width:401px) and (max-width:960px){
     div.section.title{
-        width: 100%;
+        width: 100vw;
         margin: 20px 0;
     }
     div.section.button{

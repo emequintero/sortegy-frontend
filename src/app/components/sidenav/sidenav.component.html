@@ -4,21 +4,25 @@
     </mdc-drawer-header>
     <mdc-drawer-content>
         <mdc-list>
-            <div class="section">
-                <h6 mdcListGroupSubheader>Array Options</h6>
+            <div class="section title">
+                <mdc-icon>arrow_forward</mdc-icon><h6 mdcListGroupSubheader>Array Options</h6>
             </div>
             <div class="section">
                 <p mdcListGroupSubheader>Length</p>
                 <mdc-slider discrete mdc-list-item min="10" max="50" value="25" 
                 (change)="changeArrLen($event.value)"></mdc-slider>
             </div>
-            <div class="section">
-                <h6 mdcListGroupSubheader>Sorting Options</h6>
+            <div class="section title">
+                <mdc-icon>arrow_forward</mdc-icon><h6 mdcListGroupSubheader>Sorting Options</h6>
             </div>
             <div class="section">
                 <p mdcListGroupSubheader>Speed</p>
                 <mdc-slider discrete mdc-list-item min="3" max="10" value="10"
                 (change)="changeSortSpeed($event.value)"></mdc-slider>
+            </div>
+            <mdc-list-divider></mdc-list-divider>
+            <div class="section footer">
+                <h6 mdcListGroupSubheader>M. 'Milagro' Quintero &copy;2020</h6>
             </div>
         </mdc-list>
     </mdc-drawer-content>
