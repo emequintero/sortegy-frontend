@@ -11,4 +11,6 @@ export class AppComponent {
   title = 'sortegy';
   array:Bar[];
   animations:Animation[];
+  arrLen:number = 25;
+  sortSpeed:number = 10;
 }

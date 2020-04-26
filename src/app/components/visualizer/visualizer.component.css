@@ -1,12 +1,18 @@
-.container{
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+@media only screen and (max-width:400px){
+    div.display{
+        width: 80vw;
+    }
+}
+
+@media only screen and (min-width:401px) and (max-width: 960px){
+    div.display{
+        width: 88vw;
+    }
 }
 
 .display{
-    margin-top: 30px;
-    width:80%;
+    flex-grow: 1;
+    width: calc(95vw - 240px);
     height: 500px;
     display: flex;
     justify-content: center;

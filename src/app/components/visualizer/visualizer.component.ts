@@ -1,13 +1,11 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Animation } from '../../models/animation';
 import { Bar } from 'src/app/models/bar';
-import { from } from 'rxjs';
 
 const SWAP_COLOR = "#FF0266";
 const DEFAULT_COLOR = "ghostwhite";
 const PIVOT_COLOR = "#F9A825";
 const SWAP_WAIT = 30;
-const ANIMATION_WAIT = 10;
 
 @Component({
   selector: 'app-visualizer',
@@ -18,6 +16,7 @@ export class VisualizerComponent implements OnInit {
   @Input('array') array: Bar[];
   @Output() arrayChanges: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
   @Input('animations') animations: Animation[];
+  @Input() sortSpeed:number;
   constructor() { }
 
   ngOnInit(): void {
@@ -58,10 +57,10 @@ export class VisualizerComponent implements OnInit {
       else if (current.state === "overwrite") {
         this.changeColor(this.array, "swap", [current.values[0]]);
         this.array[current.values[0]].value = current.values[1];
-        await this.wait(ANIMATION_WAIT);
+        await this.wait(this.sortSpeed);
         this.changeColor(this.array, "default", [current.values[0]]);
       }
-      await this.wait(ANIMATION_WAIT);
+      await this.wait(this.sortSpeed);
     }
     console.log(this.array.map(bar => bar.value));
     //change final pivot to default color

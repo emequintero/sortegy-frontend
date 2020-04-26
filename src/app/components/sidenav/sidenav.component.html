@@ -1,0 +1,25 @@
+<mdc-drawer class="side-nav">
+    <mdc-drawer-header>
+        <h3 class="mdc-drawer__title">OPTIONS</h3>
+    </mdc-drawer-header>
+    <mdc-drawer-content>
+        <mdc-list>
+            <div class="section">
+                <h6 mdcListGroupSubheader>Array Options</h6>
+            </div>
+            <div class="section">
+                <p mdcListGroupSubheader>Length</p>
+                <mdc-slider discrete mdc-list-item min="10" max="50" value="25" 
+                (change)="changeArrLen($event.value)"></mdc-slider>
+            </div>
+            <div class="section">
+                <h6 mdcListGroupSubheader>Sorting Options</h6>
+            </div>
+            <div class="section">
+                <p mdcListGroupSubheader>Speed</p>
+                <mdc-slider discrete mdc-list-item min="3" max="10" value="10"
+                (change)="changeSortSpeed($event.value)"></mdc-slider>
+            </div>
+        </mdc-list>
+    </mdc-drawer-content>
+</mdc-drawer>

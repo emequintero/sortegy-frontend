@@ -1,2 +1,9 @@
-<app-nav [(array)]="array" [(animations)]="animations"></app-nav>
-<app-visualizer [(array)]="array" [(animations)]="animations"></app-visualizer>
+<app-nav [(array)]="array" [(animations)]="animations" [(arrLen)]="arrLen"></app-nav>
+<div class="container">
+    <div class="section side-nav">
+        <app-sidenav [(arrLen)]="arrLen" [(sortSpeed)]="sortSpeed"></app-sidenav>
+    </div>
+    <div class="section visualizer">
+        <app-visualizer [(array)]="array" [(animations)]="animations" [(sortSpeed)]="sortSpeed"></app-visualizer>
+    </div>
+</div>

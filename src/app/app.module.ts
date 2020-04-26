@@ -6,12 +6,14 @@ import { VisualizerComponent } from './components/visualizer/visualizer.componen
 import { NavComponent } from './components/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MaterialModule} from './material.module';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VisualizerComponent,
-    NavComponent
+    NavComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

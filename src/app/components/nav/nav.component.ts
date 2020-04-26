@@ -4,7 +4,6 @@ import { SortingService } from '../../services/sorting.service';
 import { Bar } from 'src/app/models/bar';
 import { MDCSnackbar } from '@material/snackbar';
 
-const ARR_LEN = 50;
 const RAND_MAX = 500;
 const RAND_MIN = 1;
 
@@ -18,9 +17,12 @@ export class NavComponent implements OnInit {
   @Output() arrayChange: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
   @Input('animations') animations: Animation[];
   @Output() animationsChange: EventEmitter<Animation[]> = new EventEmitter<Animation[]>();
-  algorithms: string[] = ["QuickSort", "BubbleSort", "MergeSort"];
+  @Input() arrLen:number;
+  algorithms: string[] = ["QuickSort", "BubbleSort", "MergeSort", "InsertionSort"];
   selectedAlgo: string = "QuickSort";
   alert: MDCSnackbar;
+  alertMsg:string="Please create an array before clicking begin sorting.";
+  optionsOpen:boolean = false;
   constructor(private sortingService: SortingService) { }
 
   ngOnInit(): void {
@@ -28,8 +30,8 @@ export class NavComponent implements OnInit {
   }
 
   createRandomArray() {
-    this.array = Array(ARR_LEN);
-    for (let i = 0; i < ARR_LEN; i++) {
+    this.array = Array(this.arrLen);
+    for (let i = 0; i < this.arrLen; i++) {
       this.array[i] = new Bar("default", Math.floor(Math.random() * RAND_MAX) + RAND_MIN);
     }
     this.arrayChange.emit(this.array);
@@ -56,5 +58,9 @@ export class NavComponent implements OnInit {
 
   setAlgorithm(algo: string) {
     this.selectedAlgo = algo.trim();
+  }
+
+  sliderChange(event){
+    this.arrLen = event.value;
   }
 }
