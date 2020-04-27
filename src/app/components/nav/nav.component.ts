@@ -4,7 +4,7 @@ import { SortingService } from '../../services/sorting.service';
 import { Bar } from 'src/app/models/bar';
 import { MDCSnackbar } from '@material/snackbar';
 
-const RAND_MAX = 500;
+const RAND_MAX = 490;
 const RAND_MIN = 1;
 
 @Component({
@@ -13,12 +13,12 @@ const RAND_MIN = 1;
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  @Input('array') array: Bar[];
+  @Input() array: Bar[];
   @Output() arrayChange: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
-  @Input('animations') animations: Animation[];
+  @Input() animations: Animation[];
   @Output() animationsChange: EventEmitter<Animation[]> = new EventEmitter<Animation[]>();
   @Input() arrLen:number;
-  algorithms: string[] = ["QuickSort", "BubbleSort", "MergeSort", "InsertionSort"];
+  algorithms: string[] = ["QuickSort", "MergeSort", "HeapSort", "InsertionSort", "BubbleSort"];
   selectedAlgo: string = "QuickSort";
   alert: MDCSnackbar;
   alertMsg:string="Please create an array before clicking begin sorting.";

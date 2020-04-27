@@ -10,6 +10,8 @@ export class SidenavComponent implements OnInit {
   @Output() arrLenChange:EventEmitter<number> = new EventEmitter<number>();
   @Input() sortSpeed:number;
   @Output() sortSpeedChange:EventEmitter<number> = new EventEmitter<number>();
+  @Input() view:string;
+  @Output() viewChange:EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
@@ -23,6 +25,16 @@ export class SidenavComponent implements OnInit {
   changeArrLen(value){
     this.arrLen = value;
     this.arrLenChange.emit(this.arrLen);
+  }
+
+  switchView(){
+    if(this.view === "bars"){
+      this.view = "boxes";
+    }
+    else{
+      this.view = "bars";
+    }
+    this.viewChange.emit(this.view);
   }
 
 }

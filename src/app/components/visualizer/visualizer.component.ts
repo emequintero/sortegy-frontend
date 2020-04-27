@@ -17,18 +17,24 @@ export class VisualizerComponent implements OnInit {
   @Output() arrayChanges: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
   @Input('animations') animations: Animation[];
   @Input() sortSpeed:number;
+  @Input() view:string;
+  displayClass:string = "display";
   constructor() { }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
     if (typeof changes["animations"] !== "undefined" && typeof changes["animations"].currentValue !== "undefined") {
       this.animate();
     }
+    else if (typeof changes["view"] !== "undefined"){
+      this.switchDisplay(this.view);
+    }
   }
 
-  swap(arr: Bar[], one: number, two: number) {
+  swap(arr: any[], one: number, two: number) {
     let temp: number = arr[one].value;
     arr[one].value = arr[two].value;
     arr[two].value = temp;
@@ -38,8 +44,6 @@ export class VisualizerComponent implements OnInit {
   async animate() {
     //keep track of previous pivot to change it back to default color
     let prevPivot: number = 0;
-    let lastIndex:number = 0;
-    console.log(this.array.map(bar => bar.value));
     for (let i = 0; i < this.animations.length; i++) {
       let current: Animation = this.animations[i];
       //swap values in array shown in visualizer
@@ -57,12 +61,23 @@ export class VisualizerComponent implements OnInit {
       else if (current.state === "overwrite") {
         this.changeColor(this.array, "swap", [current.values[0]]);
         this.array[current.values[0]].value = current.values[1];
-        await this.wait(this.sortSpeed);
+        await this.wait(SWAP_WAIT);
         this.changeColor(this.array, "default", [current.values[0]]);
+      }
+      else if(current.state === "root"){
+        let index:number = 0;
+        if (prevPivot != current.values[0]) this.changeColor(this.array, "default", [prevPivot]);
+        for(let i = 0; i < this.array.length; i++){
+          if(this.array[i].value === current.values[0]){
+            index = i;
+            break;
+          }
+        }
+        this.changeColor(this.array, "pivot", [index]);
+        prevPivot = index;
       }
       await this.wait(this.sortSpeed);
     }
-    console.log(this.array.map(bar => bar.value));
     //change final pivot to default color
     this.changeColor(this.array, "default", [prevPivot]);
     this.arrayChanges.emit(this.array);
@@ -72,16 +87,27 @@ export class VisualizerComponent implements OnInit {
     dest.splice(destIndex, length, ...src.slice(srcIndex, srcIndex + length));
   }
 
-  changeColor(arr: Bar[], state: string, indexes: number[]) {
+  changeColor(arr: any[], state: string, indexes: number[]) {
     for (let i = 0; i < indexes.length; i++) {
       if (state === "swap") arr[indexes[i]].color = SWAP_COLOR;
-      else if (state === "default") arr[indexes[i]].color = DEFAULT_COLOR;
+      else if (state === "default") {
+        arr[indexes[i]].color = this.view === "bars" ? DEFAULT_COLOR : "inherit";
+      }
       else if (state === "pivot") arr[indexes[i]].color = PIVOT_COLOR;
     }
   }
 
   async wait(time: number) {
     return new Promise(resolve => { setTimeout(resolve, time) });
+  }
+
+  switchDisplay(value:string){
+    if(value === "boxes"){
+      this.displayClass = "display alt";
+    }
+    else{
+      this.displayClass = "display";
+    }
   }
 
 }

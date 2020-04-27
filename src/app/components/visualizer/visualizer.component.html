@@ -1,5 +1,14 @@
-<div class="display">
-    <div class="bar" *ngFor="let bar of array" 
-    [ngStyle]="{'height.px' : bar?.value , 'background-color' : bar?.color}">
-    </div>
+<div [class]="displayClass">
+    <div *ngIf="view === 'bars'; then bars else boxes;"></div>
+    <ng-template #bars>
+        <div class="bar" *ngFor="let bar of array"
+            [ngStyle]="{'height.px' : bar?.value , 'background-color' : bar?.color}">
+        </div>
+    </ng-template>
+    <ng-template #boxes>
+        <div class="boxes">
+            <div class="box" *ngFor="let bar of array" 
+            [ngStyle]="{'background-color' : bar?.color}">{{bar?.value}}</div>
+        </div>
+    </ng-template>
 </div>

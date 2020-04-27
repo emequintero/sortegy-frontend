@@ -124,7 +124,7 @@
 
 .section.footer{
     color: #969696 !important;
-    margin-top: 28vh;
+    margin-top: 12vh;
 }
 
 .mdc-list-divider{
@@ -133,4 +133,8 @@
     width: 91%;
     margin: 0 auto;
     margin-top: 32px;
+}
+
+button{
+    margin-top: 17px;
 }

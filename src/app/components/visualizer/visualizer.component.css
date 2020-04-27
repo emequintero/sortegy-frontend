@@ -13,18 +13,46 @@
 .display{
     flex-grow: 1;
     width: calc(92vw - 240px);
-    height: 500px;
+    min-height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: #BB86FC;
+    background-color: #6200EE;
+    position: relative;
 }
 
 .bar{
     display: flex;
+    flex-wrap: wrap;
     width: 10px;
     margin: 5px;
     margin-bottom: 0;
     align-self: flex-end;
     background-color: ghostwhite;
+}
+
+.display.alt{
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.boxes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    align-self: center;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    margin-bottom: 27px;
+    border: solid 2px ghostwhite;
+    height: 70px;
+    width: 70px;
 }

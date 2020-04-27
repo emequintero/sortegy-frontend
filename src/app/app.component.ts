@@ -13,4 +13,5 @@ export class AppComponent {
   animations:Animation[];
   arrLen:number = 25;
   sortSpeed:number = 10;
+  view:string = "bars";
 }

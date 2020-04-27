@@ -17,8 +17,12 @@
             </div>
             <div class="section">
                 <p mdcListGroupSubheader>Speed</p>
-                <mdc-slider discrete mdc-list-item min="3" max="10" value="10"
+                <mdc-slider discrete mdc-list-item min="3" max="25" value="10"
                 (change)="changeSortSpeed($event.value)"></mdc-slider>
+            </div>
+            <div class="section">
+                <p mdcListGroupSubheader>Switch view</p>
+                <button mdc-button raised (click)="switchView()">{{view | uppercase}}</button>
             </div>
             <mdc-list-divider></mdc-list-divider>
             <div class="section footer">

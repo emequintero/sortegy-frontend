@@ -9,3 +9,8 @@
 .button-secondary {
   @include button.filled-accessible(theme.$secondary);
 }
+
+.dark-mode-button-disabled{
+  @include button.disabled-outline-color(ghostwhite);
+  @include button.disabled-ink-color(#4F4F4F);
+}
