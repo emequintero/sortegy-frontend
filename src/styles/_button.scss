@@ -1,0 +1,16 @@
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use '@material/theme';
+
+.button-primary {
+  @include button.filled-accessible(theme.$primary);
+}
+
+.button-secondary {
+  @include button.filled-accessible(theme.$secondary);
+}
+
+.dark-mode-button-disabled{
+  @include button.disabled-outline-color(ghostwhite);
+  @include button.disabled-ink-color(#4F4F4F);
+}

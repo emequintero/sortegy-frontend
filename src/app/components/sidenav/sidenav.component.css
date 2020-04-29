@@ -1,0 +1,140 @@
+@media only screen and (max-width:400px){
+    .mdc-drawer{
+        height: auto !important;
+        width: 100vw !important;
+        text-align: center;
+    }
+
+    .mdc-drawer__header{
+        display: none;
+    }
+
+    div.section{
+        height: auto;
+        width: 100vw !important;
+        margin: 0 15px;
+        text-align: center;
+    }
+    
+    .mdc-list p, div.section.title{
+        align-self: flex-start !important;
+        margin-left: 57px !important;
+    }
+
+    .mdc-slider{
+        width: 300px !important;
+    }
+
+    div.section.footer, .mdc-drawer__content{
+        margin-top: 7vh !important;
+    }
+
+    .mdc-list-divider{
+        display: none;
+    }
+}
+
+@media only screen and (min-width:401px) and (max-width:960px){
+    .mdc-drawer{
+        height: auto !important;
+        width: 100vw !important;
+        text-align: center;
+    }
+
+    .mdc-drawer__header{
+        display: none;
+    }
+
+    .mdc-list-divider{
+        display: none;
+    }
+
+    div.section{
+        height: auto;
+        width: 50vw !important;
+        margin: 0 15px;
+        text-align: center;
+    }
+    
+    .mdc-list p, div.section.title{
+        margin-left: 32px !important;
+    }
+
+    .mdc-slider{
+        width: 350px !important;
+    }
+
+    div.section.footer, .mdc-drawer__content{
+        margin-top: 7vh !important;
+    }
+}
+
+.section{
+    width: 100%;
+    height: auto;
+}
+
+.side-nav{
+    height: calc(100vh - 72px);
+    width: 240px;
+    background-color: #1F1F1F;
+}
+
+.mdc-drawer__header h3, .mdc-list h6, .ngx-mdc-icon{
+    color: #DFDFDF;
+}
+
+.mdc-drawer__header{
+    margin-top: 7px;
+}
+
+.mdc-drawer__content{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mdc-drawer .mdc-list-group__subheader{
+    align-items: center;
+    display: flex;
+    padding: 0;
+}
+
+.mdc-list p{
+    color: #969696;
+    margin-left: 30px;
+    margin-top: 5px;
+    align-self: flex-start;
+}
+
+.mdc-slider{
+    width: 185px;
+    margin-left: -5px;
+}
+
+.ngx-mdc-icon{
+    margin-right: 7px;
+}
+
+.section.title{
+    margin-left: 12px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.section.footer{
+    color: #969696 !important;
+    margin-top: 12vh;
+}
+
+.mdc-list-divider{
+    color: #969696 !important;
+    background-color: #969696 !important;
+    width: 91%;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+button{
+    margin-top: 17px;
+}
