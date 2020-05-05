@@ -1,12 +1,14 @@
 @media only screen and (max-width:400px){
     div.display{
         width: 80vw;
+        min-height: 300px;
     }
 }
 
 @media only screen and (min-width:401px) and (max-width: 960px){
     div.display{
         width: 88vw;
+        min-height: 300px;
     }
 }
 
