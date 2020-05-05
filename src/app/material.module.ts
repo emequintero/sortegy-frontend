@@ -8,6 +8,7 @@ import { MdcSnackbarModule } from '@angular-mdc/web/snackbar';
 import { MdcSliderModule } from '@angular-mdc/web/slider';
 import { MdcDrawerModule } from '@angular-mdc/web/drawer';
 import { MdcElevationModule } from '@angular-mdc/web/elevation';
+import { MdcIconButtonModule } from '@angular-mdc/web/icon-button';
 
 @NgModule({
   exports: [
@@ -19,7 +20,8 @@ import { MdcElevationModule } from '@angular-mdc/web/elevation';
     MdcSnackbarModule,
     MdcSliderModule,
     MdcDrawerModule,
-    MdcElevationModule
+    MdcElevationModule,
+    MdcIconButtonModule
   ]
 })
 export class MaterialModule { }

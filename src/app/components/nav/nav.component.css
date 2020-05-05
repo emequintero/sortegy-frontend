@@ -1,4 +1,8 @@
 @media only screen and (max-width:400px){
+    div.container{
+        width: 100vw;
+        background-color: #3C4042;
+    }
     div.section.title, div.section.button{
         width: 100vw;
         padding: 0;
@@ -10,16 +14,28 @@
     div.section.button{
         background-color: #3C4042;
     }
+    .section.help{
+        display: none;
+    }
 }
 
 @media only screen and (min-width:401px) and (max-width:960px){
+    div.container{
+        width: 100vw;
+        background-color: #3C4042;
+    }
     div.section.title{
         width: 100vw;
-        margin: 20px 0;
+        margin: 20px 0 0 0;
+        font-size: 18px;
     }
     div.section.button{
-        width:33.3%;
-        background-color: #3C4042;
+        width:32.6vw;
+    }
+    .section.help{
+        width: 1vw;
+        margin-left: 0 !important;
+        text-align: center !important;
     }
 }
 
@@ -30,7 +46,7 @@
 }
 
 .container{
-    background-color: #2D2D2D;
+    background-color: #383838;
     box-shadow: 0 3px 6px rgba(3, 3, 3, 0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -39,11 +55,25 @@
 }
 
 .section.button{
-    width: 16.6%;
+    width: 15vw;
     text-align: center;
 }
 
+.section.help{
+    width: 2vw;
+    margin-top: -25px;
+    margin-left: -13px;
+    padding-top: 20px;
+    text-align: start;
+}
+
 .section.title{
-    width: 50%;
+    width: 50vw;
     text-align: center;
+    font-size: medium;
+}
+
+.description{
+    width: auto;
+    height: auto;
 }

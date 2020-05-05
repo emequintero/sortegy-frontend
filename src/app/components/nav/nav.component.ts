@@ -23,6 +23,7 @@ export class NavComponent implements OnInit {
   alert: MDCSnackbar;
   alertMsg:string="Please create an array before clicking begin sorting.";
   optionsOpen:boolean = false;
+  algoDescription:string = "Yellow represents the current pivot. Red represents values being swapped.";
   constructor(private sortingService: SortingService) { }
 
   ngOnInit(): void {
@@ -58,9 +59,31 @@ export class NavComponent implements OnInit {
 
   setAlgorithm(algo: string) {
     this.selectedAlgo = algo.trim();
-  }
-
-  sliderChange(event){
-    this.arrLen = event.value;
+    switch(this.selectedAlgo){
+      case "QuickSort":{
+        this.algoDescription = `Yellow represents the current pivot. Red represents values being swapped.`;
+        break;
+      }
+      case "MergeSort":{
+        this.algoDescription = `Yellow represents the current index of the section being traversed. 
+                                Red represents a value that is being overwritten.`;
+        break;
+      }
+      case "HeapSort":{
+        this.algoDescription = `Yellow represents the element that is currently the root in the heap. 
+                                Red represents a value that is being overwritten.`;
+        break;
+      }
+      case "InsertionSort":{
+        this.algoDescription = `Yellow represents the current key (value being compared). 
+                                Red represents values being swapped.`;
+        break;
+      }
+      case "BubbleSort":{
+        this.algoDescription = `Yellow represents the current index of the section being traversed. 
+                                Red represents values being swapped.`;
+        break;
+      }
+    }
   }
 }

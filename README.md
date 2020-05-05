@@ -1,27 +1,33 @@
-# Sortegy
+# Welcome to sortegy 👋
+![Version](https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+> A sorting algorithm web application which allows you to visualize all your favorite ways to sort data!
 
-## Development server
+### 🏠 [Homepage](http://sortegy.s3-website.us-east-2.amazonaws.com/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
 
-## Code scaffolding
+```sh
+docker pull hylicmerit/sortegy
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+```sh
+docker run -p 8080:8080 -d hylicmerit/sortegy
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Author
 
-## Running unit tests
+👤 **M. Milagro Quintero**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Website: https://matthiasquintero.com/
+* Github: [@matthiasquintero](https://github.com/matthiasquintero)
+* LinkedIn: [@https:\/\/www.linkedin.com\/in\/matthias-quintero-bb652b122](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/matthias-quintero-bb652b122)
 
-## Running end-to-end tests
+## Show your support
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Give a ⭐️ if this project helped you!
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+***

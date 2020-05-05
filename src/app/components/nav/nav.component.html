@@ -20,6 +20,20 @@
             </mdc-menu>
         </div>
     </div>
+    <div class="section help">
+        <div mdcMenuSurfaceAnchor #helpAnchor>
+            <button mdcIconButton (click)="help.open = !help.open">
+                <mdc-icon>help_outline</mdc-icon>
+            </button>
+            <mdc-menu #help [anchorElement]="helpAnchor">
+                <mdc-list>
+                    <mdc-list-item class="description">
+                        {{algoDescription}}
+                    </mdc-list-item>
+                </mdc-list>
+            </mdc-menu>
+        </div>
+    </div>
     <div class="section button">
         <button mdc-button raised (click)="beginSorting()">BEGIN SORTING</button>
     </div>
