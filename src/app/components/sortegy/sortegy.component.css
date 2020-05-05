@@ -1,0 +1,33 @@
+@media only screen and (max-width:400px){
+    div.section.side-nav{
+        order: 2;
+    }
+
+    div.section.visualizer{
+        margin: 30px 0;
+    }
+}
+
+@media only screen and (min-width:401px) and (max-width:960px){
+    div.section.side-nav{
+        order: 2;
+        justify-self: end;
+    }
+
+    div.section.visualizer{
+        margin: 30px 0;
+    }
+}
+
+.section{
+    height: auto;
+    width: auto;
+}
+
+.section.nav{
+    width: 100%;
+}
+
+.section.visualizer{
+    flex-grow: 1;
+}

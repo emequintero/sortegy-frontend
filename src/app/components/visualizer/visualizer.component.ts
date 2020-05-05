@@ -25,7 +25,6 @@ export class VisualizerComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     if (typeof changes["animations"] !== "undefined" && typeof changes["animations"].currentValue !== "undefined") {
       this.animate();
     }

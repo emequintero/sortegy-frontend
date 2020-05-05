@@ -1,4 +1,4 @@
-<div [class]="displayClass">
+<div [class]="displayClass" [mdcElevation]="24">
     <div *ngIf="view === 'bars'; then bars else boxes;"></div>
     <ng-template #bars>
         <div class="bar" *ngFor="let bar of array"

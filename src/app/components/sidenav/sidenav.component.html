@@ -1,4 +1,4 @@
-<mdc-drawer class="side-nav">
+<mdc-drawer class="side-nav" [mdcElevation]="24">
     <mdc-drawer-header>
         <h3 class="mdc-drawer__title">OPTIONS</h3>
     </mdc-drawer-header>
@@ -22,7 +22,7 @@
             </div>
             <div class="section">
                 <p mdcListGroupSubheader>Switch view</p>
-                <button mdc-button raised (click)="switchView()">{{view | uppercase}}</button>
+                <button mdc-button raised class="sortegy-btn" (click)="switchView()">{{view | uppercase}}</button>
             </div>
             <mdc-list-divider></mdc-list-divider>
             <div class="section footer">
