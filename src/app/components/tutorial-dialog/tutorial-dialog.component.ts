@@ -15,6 +15,7 @@ import { Pagination } from 'src/app/models/pagination';
 export class TutorialDialogComponent {
   currentStep: Step;
   pagination:Pagination;
+  imgWidth:number = 180;
   constructor(public dialogRef: MdcDialogRef<TutorialDialogComponent>,
     @Inject(MDC_DIALOG_DATA) public data: DialogData,
     private tutorialService: TutorialService) { }
@@ -23,6 +24,20 @@ export class TutorialDialogComponent {
   nextStep() {
     this.currentStep = this.tutorialService.next();
     this.pagination = this.tutorialService.getPagination();
+    switch(this.currentStep.image){
+      case "Sorted.PNG":{
+        this.imgWidth = 578;
+        break;
+      }
+      case "Menu.PNG":{
+        this.imgWidth = 163;
+        break;
+      }
+      default:{
+        this.imgWidth = 180;
+        break;
+      }
+    }
     if (this.currentStep) {
       let data = {
         title: this.currentStep.title,
@@ -41,6 +56,20 @@ export class TutorialDialogComponent {
   prevStep() {
     this.currentStep = this.tutorialService.previous();
     this.pagination = this.tutorialService.getPagination();
+    switch(this.currentStep.image){
+      case "Sorted.PNG":{
+        this.imgWidth = 578;
+        break;
+      }
+      case "Menu.PNG":{
+        this.imgWidth = 163;
+        break;
+      }
+      default:{
+        this.imgWidth = 180;
+        break;
+      }
+    }
     if (this.currentStep) {
       let data = {
         title: this.currentStep.title,
@@ -67,4 +96,5 @@ export interface DialogData {
     current:number,
     length:number
   }
+  imgWidth:number
 }

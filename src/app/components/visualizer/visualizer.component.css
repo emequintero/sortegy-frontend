@@ -15,11 +15,11 @@
 .display{
     flex-grow: 1;
     width: calc(92vw - 240px);
-    min-height: 500px;
+    min-height: 480px;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: #6200EE;
+    background-color: #2B79C2;
     position: relative;
 }
 

@@ -16,3 +16,7 @@
   @include button.disabled-outline-color(ghostwhite);
   @include button.disabled-ink-color(#4F4F4F);
 }
+
+.sortegy-btn{
+  @include button.container-fill-color(#2B79C2);
+}

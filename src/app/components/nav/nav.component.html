@@ -3,14 +3,14 @@
         <h1 mdcHeading1>SORTEGY: A Sorting Algorithm Visualizer</h1>
     </div>
     <div class="section button">
-        <button mdc-button raised (click)="createRandomArray()">Create Array</button>
+        <button mdc-button raised class="sortegy-btn" (click)="createRandomArray()">Create Array</button>
     </div>
     <div class="section button">
         <div mdcMenuSurfaceAnchor #algorithmAnchor>
-            <button mdc-button raised (click)="algorithmGroup.open = !algorithmGroup.open">
+            <button mdc-button raised class="sortegy-btn" (click)="algorithmGroup.open = !algorithmGroup.open">
                 <mdc-icon>arrow_drop_down</mdc-icon>ALGORITHMS
             </button>
-            <mdc-menu #algorithmGroup [anchorElement]="algorithmAnchor">
+            <mdc-menu #algorithmGroup [anchorElement]="algorithmAnchor" [anchorCorner]="'bottomStart'">
                 <mdc-list>
                     <mdc-list-item *ngFor="let algo of algorithms" [value]="algo"
                         (click)="setAlgorithm($event.target.innerHTML)">
@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="section button">
-        <button mdc-button raised (click)="beginSorting()">BEGIN SORTING</button>
+        <button mdc-button raised class="sortegy-btn" (click)="beginSorting()">BEGIN SORTING</button>
     </div>
 </div>
 <div class="mdc-snackbar">

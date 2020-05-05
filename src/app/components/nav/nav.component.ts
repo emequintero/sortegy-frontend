@@ -4,7 +4,7 @@ import { SortingService } from '../../services/sorting.service';
 import { Bar } from 'src/app/models/bar';
 import { MDCSnackbar } from '@material/snackbar';
 
-const RAND_MAX = 490;
+const RAND_MAX = 470;
 const RAND_MIN = 1;
 
 @Component({

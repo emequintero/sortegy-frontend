@@ -74,10 +74,14 @@
     height: auto;
 }
 
+.sortegy-btn{
+    width: 50%;
+}
+
 .side-nav{
     height: calc(100vh - 72px);
     width: 240px;
-    background-color: #1F1F1F;
+    background-color: #1E2432;
 }
 
 .mdc-drawer__header h3, .mdc-list h6, .ngx-mdc-icon{
