@@ -77,3 +77,11 @@
     width: auto;
     height: auto;
 }
+
+.info{
+    width: 15vw;
+}
+
+.mdc-snackbar__label{
+    text-align: center;
+}

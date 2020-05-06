@@ -8,7 +8,7 @@
     <div class="section button">
         <div mdcMenuSurfaceAnchor #algorithmAnchor>
             <button mdc-button raised class="sortegy-btn" (click)="algorithmGroup.open = !algorithmGroup.open">
-                <mdc-icon>arrow_drop_down</mdc-icon>ALGORITHMS
+                <mdc-icon>arrow_drop_down</mdc-icon>{{selectedAlgo !== '' ? selectedAlgo : 'ALGORITHMS' | uppercase}}
             </button>
             <mdc-menu #algorithmGroup [anchorElement]="algorithmAnchor" [anchorCorner]="'bottomStart'">
                 <mdc-list>
@@ -25,10 +25,10 @@
             <button mdcIconButton (click)="help.open = !help.open">
                 <mdc-icon>help_outline</mdc-icon>
             </button>
-            <mdc-menu #help [anchorElement]="helpAnchor">
+            <mdc-menu #help class="info" [anchorElement]="helpAnchor" [anchorCorner]="'bottomStart'">
                 <mdc-list>
                     <mdc-list-item class="description">
-                        {{algoDescription}}
+                        <div [innerHTML]="algoDescription"></div>
                     </mdc-list-item>
                 </mdc-list>
             </mdc-menu>
@@ -40,16 +40,6 @@
 </div>
 <div class="mdc-snackbar">
     <div class="mdc-snackbar__surface">
-        <div class="mdc-snackbar__label" role="status" aria-live="polite">
-            {{alertMsg}}
-        </div>
-        <div class="mdc-snackbar__actions">
-            <button type="button" class="mdc-button mdc-snackbar__action">
-                <div class="mdc-button__ripple"></div>
-                <span class="mdc-button__label">
-                    <mdc-icon>close</mdc-icon>
-                </span>
-            </button>
-        </div>
+        <div class="mdc-snackbar__label" role="status" aria-live="polite"></div>
     </div>
 </div>
