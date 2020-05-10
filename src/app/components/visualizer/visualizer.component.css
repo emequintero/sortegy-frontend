@@ -1,18 +1,4 @@
-@media only screen and (max-width:400px){
-    div.display{
-        width: 80vw;
-        min-height: 300px;
-    }
-}
-
-@media only screen and (min-width:401px) and (max-width: 960px){
-    div.display{
-        width: 88vw;
-        min-height: 300px;
-    }
-}
-
-.display{
+.display {
     flex-grow: 1;
     width: calc(92vw - 240px);
     min-height: 480px;
@@ -23,7 +9,7 @@
     position: relative;
 }
 
-.bar{
+.bar {
     display: flex;
     flex-wrap: wrap;
     width: 10px;
@@ -33,12 +19,12 @@
     background-color: ghostwhite;
 }
 
-.display.alt{
+.display.alt {
     flex-wrap: wrap;
     align-items: center;
 }
 
-.boxes{
+.boxes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -48,13 +34,67 @@
     align-self: center;
 }
 
-.box{
+.box {
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: flex-end;
-    margin-bottom: 27px;
+    margin: 13.5px 0;
     border: solid 2px ghostwhite;
     height: 70px;
     width: 70px;
+}
+
+/*MEDIUM SCREEN*/
+
+@media only screen and (min-width: 960px) and (max-width: 1279px) {
+    div.display {
+        width: 70vw;
+        min-height: 390px;
+    }
+    div.bar {
+        width: 0.5vw;
+        margin: 0 0.5vw;
+    }
+    div.box {
+        height: 43px;
+        width: 43px;
+        font-size: 1.5vw;
+    }
+}
+
+/*SMALL SCREEN*/
+
+@media only screen and (min-width: 600px) and (max-width: 959px) {
+    div.display {
+        width: 88vw;
+        min-height: 55vh;
+    }
+    div.bar {
+        width: 0.5vw;
+        margin: 0 0.5vw;
+    }
+    div.box {
+        height: 32px;
+        width: 32px;
+        font-size: 1.5vw;
+    }
+}
+
+/*XTRA SMALL SCREEN*/
+
+@media only screen and (max-width:599px) {
+    div.display {
+        width: 80vw;
+        min-height: 55vh;
+    }
+    div.bar {
+        width: 0.5vw;
+        margin: 0 0.5vw;
+    }
+    div.box {
+        height: 26px;
+        width: 26px;
+        font-size: 2vw;
+    }
 }

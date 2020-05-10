@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Animation } from '../../models/animation';
 import { SortingService } from '../../services/sorting.service';
+import { DependenciesService } from '../../services/dependencies.service';
 import { Bar } from 'src/app/models/bar';
 import { MDCSnackbar } from '@material/snackbar';
 
@@ -23,7 +24,7 @@ export class NavComponent implements OnInit {
   alert: MDCSnackbar;
   optionsOpen:boolean = false;
   algoDescription:string = "Please select an algorithm.";
-  constructor(private sortingService: SortingService) { }
+  constructor(private sortingService: SortingService, private dependenciesService:DependenciesService) { }
 
   ngOnInit(): void {
     this.alert = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
@@ -32,9 +33,11 @@ export class NavComponent implements OnInit {
   createRandomArray() {
     this.array = Array(this.arrLen);
     for (let i = 0; i < this.arrLen; i++) {
-      this.array[i] = new Bar("default", Math.floor(Math.random() * RAND_MAX) + RAND_MIN);
+      this.array[i] = new Bar("default", Math.floor(((Math.random() * RAND_MAX) + RAND_MIN ) / 
+                                          this.dependenciesService.getBarHeight()));
     }
     this.arrayChange.emit(this.array);
+    this.dependenciesService.setBackupArray(this.array);
   }
 
   beginSorting() {
