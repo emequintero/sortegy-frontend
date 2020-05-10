@@ -17,8 +17,8 @@ import { Pagination } from 'src/app/models/pagination';
 })
 export class SortegyComponent implements OnInit {
   title = 'sortegy';
-  array: Bar[];
-  animations: Animation[];
+  array: Bar[] = [];
+  animations: Animation[] = [];
   arrLen: number = 25;
   sortSpeed: number = 10;
   view: string = "bars";

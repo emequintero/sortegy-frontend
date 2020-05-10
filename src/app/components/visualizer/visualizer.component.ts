@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Animation } from '../../models/animation';
 import { Bar } from 'src/app/models/bar';
+import { DependenciesService } from '../../services/dependencies.service';
+import { map } from 'rxjs/operators';
 
 const SWAP_COLOR = "#FF0266";
 const DEFAULT_COLOR = "ghostwhite";
@@ -12,23 +14,31 @@ const SWAP_WAIT = 30;
   templateUrl: './visualizer.component.html',
   styleUrls: ['./visualizer.component.css']
 })
-export class VisualizerComponent implements OnInit {
-  @Input('array') array: Bar[];
+export class VisualizerComponent implements OnInit, OnChanges {
+  @Input('array') array: Bar[] = [];
   @Output() arrayChanges: EventEmitter<Bar[]> = new EventEmitter<Bar[]>();
   @Input('animations') animations: Animation[];
-  @Input() sortSpeed:number;
-  @Input() view:string;
-  displayClass:string = "display";
-  constructor() { }
+  @Input() sortSpeed: number;
+  @Input() view: string;
+  unitClass: string;
+  displayClass: string = "display";
+  constructor(private dependenciesService: DependenciesService) { }
 
   ngOnInit(): void {
+    this.dependenciesService.subscribeToBarHeight()
+    .subscribe((responsiveBars)=>{
+      if(this.array.length !== 0){
+        this.array = responsiveBars;
+        this.arrayChanges.emit(this.array);
+      }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (typeof changes["animations"] !== "undefined" && typeof changes["animations"].currentValue !== "undefined") {
+    if (typeof changes["animations"] !== "undefined" && changes["animations"].currentValue.length !== 0) {
       this.animate();
     }
-    else if (typeof changes["view"] !== "undefined"){
+    else if (typeof changes["view"] !== "undefined") {
       this.switchDisplay(this.view);
     }
   }
@@ -63,11 +73,11 @@ export class VisualizerComponent implements OnInit {
         await this.wait(SWAP_WAIT);
         this.changeColor(this.array, "default", [current.values[0]]);
       }
-      else if(current.state === "root"){
-        let index:number = 0;
+      else if (current.state === "root") {
+        let index: number = 0;
         if (prevPivot != current.values[0]) this.changeColor(this.array, "default", [prevPivot]);
-        for(let i = 0; i < this.array.length; i++){
-          if(this.array[i].value === current.values[0]){
+        for (let i = 0; i < this.array.length; i++) {
+          if (this.array[i].value === current.values[0]) {
             index = i;
             break;
           }
@@ -100,12 +110,16 @@ export class VisualizerComponent implements OnInit {
     return new Promise(resolve => { setTimeout(resolve, time) });
   }
 
-  switchDisplay(value:string){
-    if(value === "boxes"){
+  switchDisplay(value: string) {
+    if (value === "boxes") {
       this.displayClass = "display alt";
+      this.array = this.array.map((bar)=>{return new Bar("default",bar.value)});
+      this.arrayChanges.emit(this.array);
     }
-    else{
+    else {
       this.displayClass = "display";
+      this.array = this.array.map((bar)=>{return new Bar("default",bar.value)});
+      this.arrayChanges.emit(this.array);
     }
   }
 

@@ -56,6 +56,11 @@ h2.subtitle{
     flex-direction: row;
 }
 
+.buttons button{
+    color: #2B79C2;
+    font-weight: 600;
+}
+
 .skip-btn{
     flex-grow: 1;
 }

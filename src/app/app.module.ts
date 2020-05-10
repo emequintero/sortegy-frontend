@@ -10,6 +10,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SortegyComponent } from './components/sortegy/sortegy.component';
 import { MdcDialogModule } from '@angular-mdc/web/dialog';
 import { TutorialDialogComponent } from './components/tutorial-dialog/tutorial-dialog.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TutorialDialogComponent } from './components/tutorial-dialog/tutorial-d
     BrowserModule,
     HttpClientModule,
     MaterialModule,
-    MdcDialogModule
+    MdcDialogModule,
+    FlexLayoutModule
   ],
   entryComponents: [
     TutorialDialogComponent
