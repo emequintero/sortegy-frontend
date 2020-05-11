@@ -8,13 +8,13 @@
 ## Install
 
 ```sh
-docker pull hylicmerit/sortegy
+npm install
 ```
 
 ## Usage
 
 ```sh
-docker run -p 8080:8080 -d hylicmerit/sortegy
+ng serve -o
 ```
 
 ## Author
